@@ -1,0 +1,229 @@
+/* ==========================================================================
+   CUNHA SOLUÇÕES - DESIGN SYSTEM & ESTILOS REFINADOS
+   Baseado na identidade visual do logotipo oficial e princípios de UI/UX
+   ========================================================================== */
+
+:root {
+  /* HSL Color System */
+  --primary-h: 359;
+  --primary-s: 93%;
+  --primary-l: 36%;
+  --color-primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+  --color-primary-dark: hsl(var(--primary-h), var(--primary-s), 28%);
+  --color-primary-light: hsl(var(--primary-h), 100%, 98%);
+  --color-primary-subtle: hsl(var(--primary-h), 100%, 99%);
+  --color-primary-border: hsl(var(--primary-h), 90%, 89%);
+  
+  --secondary-h: 215;
+  --secondary-s: 25%;
+  --secondary-l: 27%;
+  --color-secondary: hsl(var(--secondary-h), var(--secondary-s), var(--secondary-l));
+  --color-secondary-dark: hsl(222, 47%, 11%);
+  --color-secondary-light: hsl(210, 40%, 98%);
+  
+  --accent-h: 55;
+  --accent-s: 100%;
+  --accent-l: 42%;
+  --color-accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+  --color-accent-gold: hsl(45, 93%, 47%);
+  --color-accent-amber: hsl(38, 92%, 50%);
+  --color-accent-light: hsl(48, 100%, 98%);
+  
+  --color-whatsapp: hsl(142, 70%, 49%);
+  --color-whatsapp-dark: hsl(168, 76%, 31%);
+  --color-whatsapp-light: hsl(152, 81%, 96%);
+
+  --color-text-main: hsl(222, 47%, 11%);
+  --color-text-muted: hsl(215, 16%, 35%);
+  --color-text-light: hsl(215, 14%, 47%);
+  
+  --font-heading: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --shadow-soft: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  --shadow-card: 0 10px 30px -4px rgba(15, 23, 42, 0.07), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+  --shadow-hover: 0 20px 40px -6px rgba(174, 6, 7, 0.12), 0 8px 16px -4px rgba(15, 23, 42, 0.06);
+
+  --transition-smooth: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+/* Reset suave e base */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-main);
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Foco acessível */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Skip Link para acessibilidade */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--color-primary);
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  z-index: 100;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  transform: translateY(0);
+}
+
+/* Navbar com efeito ao rolar */
+.nav-scrolled {
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+}
+
+/* Intercalação de seções conforme especificação */
+.section-white {
+  background-color: #ffffff;
+}
+
+.section-pastel-slate {
+  background-color: #f8fafc;
+}
+
+.section-pastel-red {
+  background-color: #fff8f8;
+}
+
+.section-pastel-amber {
+  background-color: #fffdf5;
+}
+
+.section-footer {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+/* Padrões sutis de fundo elétrico */
+.bg-tech-pattern {
+  background-image: radial-gradient(rgba(174, 6, 7, 0.05) 1.2px, transparent 1.2px), radial-gradient(rgba(15, 23, 42, 0.03) 1.2px, transparent 1.2px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+/* Cards com elevação e microinteração usando apenas transform/opacity */
+.feature-card {
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(174, 6, 7, 0.25);
+}
+
+/* Animações e Reveals ao rolar a página */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FAQ Accordion otimizado */
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  opacity: 0;
+}
+
+.accordion-item[data-open="true"] .accordion-content {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.accordion-item[data-open="true"] .accordion-icon {
+  transform: rotate(180deg);
+  color: var(--color-primary);
+}
+
+/* Pulso sutil no botão flutuante de WhatsApp */
+@keyframes pulse-subtle {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-pulse {
+  animation: pulse-subtle 2.5s infinite;
+}
+
+/* Respeitar prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-init {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
